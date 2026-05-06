@@ -11,9 +11,7 @@
 이 템플릿으로 초기화해줘: https://github.com/whyjay/agent-project-template
 ```
 
-3. Agent가 묻는 두 가지에만 답합니다.
-   - 프로젝트 목적
-   - 관련 자료 위치: OneDrive/SharePoint 연결, `00_refs/` 업로드, 아직 없음
+3. Agent가 묻는 질문에 답하면 초기 세팅이 완료됩니다.
 
 ## Agent Bootstrap
 
