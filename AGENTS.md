@@ -22,7 +22,7 @@ Agent는 새 세션을 시작할 때 먼저 이 섹션을 확인한다.
 
 외부 빈 프로젝트에서 “이 템플릿으로 초기화해줘: https://github.com/whyjay/agent-project-template” 요청을 받은 Agent는 이 repo를 조회하거나, 조회가 불가하면 사용자가 제공한 ZIP/파일을 기준으로 `AGENT_BOOTSTRAP.md`를 먼저 읽고 따른다.
 
-초기화 절차는 Windows/mac 사용자 모두를 위해 OS별 shell 명령이나 별도 개발 도구 설치에 의존하지 않는다. 단, 사용자가 OneDrive/SharePoint 폴더 연결을 선택했고 macOS 로컬 GUI와 shell 실행이 가능한 경우에는 폴더 선택 창을 선택적으로 시도할 수 있다.
+초기화 절차는 Windows/mac 사용자 모두를 위해 OS별 shell 명령이나 별도 개발 도구 설치에 의존하지 않는다. Claude 앱 UI를 Agent가 직접 조작한다고 가정하지 않으며, 사용자가 OneDrive/SharePoint 폴더 연결을 선택했고 macOS 로컬 GUI와 shell 실행이 가능한 경우에만 폴더 선택 창을 선택적으로 시도할 수 있다.
 
 `Initialized: NO` 상태인 경우 이 프로젝트는 아직 초기화되지 않은 것으로 간주한다.
 
@@ -32,9 +32,12 @@ Agent는 새 세션을 시작할 때 먼저 이 섹션을 확인한다.
 2. `system/INIT.md`를 먼저 읽고 초기화 프로토콜을 따른다.
 3. 가능하면 공용 skill인 `skills/project-init/SKILL.md`를 참조한다.
 4. 사용자에게 최소 두 가지를 요청한다.
-   - 프로젝트의 목적: 자유서술로 요청한다.
+   - 두 질문은 목적 먼저, 자료 위치 다음 순서로 분리해서 묻고 한 번에 묻지 않는다.
+   - 프로젝트의 목적: 자유서술로 요청하고 답변을 받은 뒤 다음 질문으로 넘어간다.
    - 관련 자료 위치: 가능한 경우 Claude/Codex의 native option/choice UI로 `A. OneDrive/SharePoint 폴더 연결`, `B. 00_refs 업로드`, `C. 자료 없음` 중 하나를 선택하게 한다. 선택형 UI가 없는 환경에서만 짧은 A/B/C 텍스트 질문으로 대체한다.
-   - A를 선택한 경우 macOS 로컬 GUI와 shell 실행이 가능하면 폴더 선택 창을 시도하고, 실패하거나 지원되지 않으면 폴더 경로를 직접 입력받는다.
+   - A를 선택한 경우 Claude 앱/웹에서는 Agent가 Claude 앱 + 버튼을 직접 트리거한다고 가정하지 않고, 사용자가 채팅창 왼쪽 아래 `+` 버튼 또는 프로젝트 Files 섹션에서 자료를 추가하도록 안내한다.
+   - A를 선택한 경우 Claude Code에서는 로컬 폴더 참조를 위해 `/add-dir <path>`, 실행 시 `--add-dir <path>`, 또는 설정의 `additionalDirectories`를 안내한다.
+   - A를 선택했고 macOS 로컬 GUI와 shell 실행이 실제로 가능하면 `osascript` 선택적 시도로 폴더 선택 창을 열 수 있다. 실패하거나 지원되지 않으면 폴더 경로를 직접 입력받는다.
 5. 초기화가 끝나면 이 파일의 프로젝트 상태를 갱신한다.
 
 초기화가 이미 끝난 경우에는 `system/INIT.md`를 다시 실행하지 않는다. 단, 사용자가 "초기화 다시 해줘", "프로젝트 목적을 바꿔줘", "자료 폴더를 새로 연결했어"라고 요청하면 `system/INIT.md`를 참조해 재초기화한다.

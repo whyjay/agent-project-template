@@ -27,9 +27,17 @@ Ask for exactly these two inputs first, in this order:
    - B: Files manually uploaded to `00_refs/`
    - C: No materials yet
 
+Ask for the project purpose first, wait for that answer, and only then ask for the reference material location. Do not ask both questions in a single combined prompt.
+
 For Codex, use a native choice tool such as `request_user_input` when it is available. For Claude/Codex environments with another built-in choice UI, use that. Only fall back to a short A/B/C text question when no native choice UI is available.
 
-If the user selects A, optionally try to open a folder picker only when running on macOS with local GUI access and shell execution:
+If the user selects A, handle the environment explicitly:
+
+- Claude app/web: Do not assume the agent can directly trigger the Claude app `+` button. Tell the user to add files through the lower-left `+` button in the chat box or through the project's Files section.
+- Claude Code: If a local reference folder must be readable, tell the user to use `/add-dir <path>`, start Claude Code with `--add-dir <path>`, or add the folder to `additionalDirectories` in settings.
+- macOS with local GUI access and shell execution: optionally try to open a folder picker with `osascript`.
+
+Folder picker command:
 
 ```sh
 osascript -e 'POSIX path of (choose folder with prompt "OneDrive/SharePoint reference folder를 선택하세요")'

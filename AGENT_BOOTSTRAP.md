@@ -29,7 +29,8 @@
    - 압축이 해제된 파일 목록이 보이면 그 파일을 기준으로 같은 제외 규칙을 적용한다.
    - 사용자가 압축 파일만 올린 경우 Agent가 읽을 수 있는 범위에서 압축 내용을 확인하고, 읽을 수 없으면 압축 해제 후 다시 업로드하도록 요청한다.
 5. 사용자에게 두 가지를 순서대로 묻는다.
-   - 프로젝트 목적은 자유서술로 요청한다.
+   - 두 질문은 목적 먼저, 자료 위치 다음 순서로 분리해서 묻고 한 번에 묻지 않는다.
+   - 프로젝트 목적은 자유서술로 요청하고 답변을 받은 뒤 다음 질문으로 넘어간다.
    - 관련 자료 위치는 가능한 경우 Claude/Codex의 native option/choice UI로 묻는다.
    - 선택형 UI가 없는 환경에서만 짧은 A/B/C 텍스트 질문으로 대체한다.
 
@@ -43,7 +44,11 @@
 | `B` | `00_refs/`에 직접 업로드 |
 | `C` | 아직 자료 없음 |
 
-A를 선택한 경우 macOS 로컬 GUI와 shell 실행이 가능하면 다음 명령으로 폴더 선택 창을 선택적으로 시도할 수 있다.
+A를 선택한 경우 환경별로 다음 순서를 따른다.
+
+- Claude 앱/웹에서는 공식 공개 기능으로 Agent가 Claude 앱 + 버튼을 직접 트리거한다고 가정하지 않는다. 사용자가 채팅창 왼쪽 아래 `+` 버튼 또는 프로젝트 Files 섹션에서 자료를 추가하도록 안내한다.
+- Claude Code에서는 로컬 폴더 참조를 위해 `/add-dir <path>`, 실행 시 `--add-dir <path>`, 또는 설정의 `additionalDirectories`를 안내한다.
+- macOS 로컬 GUI와 shell 실행이 실제로 가능하면 다음 명령으로 `osascript` 선택적 시도를 할 수 있다.
 
 ```sh
 osascript -e 'POSIX path of (choose folder with prompt "OneDrive/SharePoint reference folder를 선택하세요")'
