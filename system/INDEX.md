@@ -24,7 +24,7 @@
 | # | 파일 | 종류 | 한 줄 요약 |
 |---|---|---|---|
 | 1 | [README.md](../README.md) | MD | GitHub 첫 화면용 템플릿 사용 안내 |
-| 2 | [AGENT_BOOTSTRAP.md](../AGENT_BOOTSTRAP.md) | MD | repo URL 기반 템플릿 설치 절차 |
+| 2 | [AGENT_BOOTSTRAP.md](../AGENT_BOOTSTRAP.md) | MD | 무설치 repo URL 기반 템플릿 초기화 절차 |
 | 3 | [AGENTS.md](../AGENTS.md) | MD | Agent가 항상 따라야 하는 프로젝트 운영 규칙 |
 | 4 | [CLAUDE.md](../CLAUDE.md) | MD | Claude Code용 진입 지침 |
 | 5 | [README_FOR_TEAM.md](../README_FOR_TEAM.md) | MD | 비개발자 팀원용 사용 안내 |
@@ -94,4 +94,6 @@
 
 | 날짜 | 변경 |
 |---|---|
+| 2026-05-06 | 초기화 질문을 선택형 UI 우선 흐름으로 개선 |
+| 2026-05-06 | bootstrap 절차에서 시스템 의존성 제거 문서 개편 |
 | 2026-05-06 | 템플릿 운영을 skill 기반 절차로 정리 |
