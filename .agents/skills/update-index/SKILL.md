@@ -5,33 +5,15 @@ description: Update system/INDEX.md after files are added, moved, renamed, or de
 
 # update-index skill
 
-This skill is part of the shared project template.
-
-- Canonical location for all agents: `skills/update-index/SKILL.md`
-- Codex discovery copy: `.agents/skills/update-index/SKILL.md`
-- Claude Code copy: `.claude/skills/update-index/SKILL.md`
-
-No external language runtime is required. Update the index by inspecting the project tree and editing `system/INDEX.md` directly.
+Keep this skill identical across `skills/`, `.agents/skills/`, and `.claude/skills/`. Update `system/INDEX.md` by inspecting the project tree and editing the index directly.
 
 ## Procedure
 
-1. Scan these locations:
-   - root markdown files (`AGENTS.md`, `CLAUDE.md`, `README_FOR_TEAM.md`)
-   - `system/` (Agent operations docs: `INIT.md`, `INDEX.md`)
-   - `00_refs/`
-   - `01_analysis/`
-   - `02_outputs/`
-   - `skills/`
-   - `.agents/skills/` and `.claude/skills/` only to confirm skill copy consistency
-2. Identify files missing from `system/INDEX.md`.
-3. Identify files listed in `system/INDEX.md` but no longer present.
-4. Add or update rows with:
-   - relative path (links from `system/INDEX.md` use `../` to point to root files)
-   - file type
-   - source or creation date
-   - one-line summary
-   - key output / usage
-5. Add a row to the change history.
+1. Scan root markdown files, `system/`, `00_refs/`, `01_analysis/`, `02_outputs/`, and `skills/`.
+2. Check `.agents/skills/` and `.claude/skills/` only for skill copy consistency.
+3. Identify files missing from `system/INDEX.md` and files listed there but no longer present.
+4. Add or update rows with relative path, type, source or date, one-line summary, and key output/usage.
+5. Add a concise row to the change history.
 
 ## Rules
 
@@ -39,6 +21,5 @@ No external language runtime is required. Update the index by inspecting the pro
 - Keep analysis notes in `01_analysis/`.
 - Keep externally shareable outputs in `02_outputs/`.
 - Treat `skills/` as the shared skill source of truth.
-- Treat `.agents/skills/` and `.claude/skills/` as discovery copies; do not index them separately unless a mismatch needs to be called out.
+- Do not index `.agents/skills/` or `.claude/skills/` separately unless a mismatch must be called out.
 - Do not duplicate detailed file summaries in `AGENTS.md`.
-- `system/` only holds Agent operations docs (`INIT.md`, `INDEX.md`); do not move project deliverables there.
