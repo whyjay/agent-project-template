@@ -39,6 +39,23 @@ Agent는 새 세션을 시작할 때 먼저 이 섹션을 확인한다.
 
 초기화가 이미 끝난 경우에는 `system/INIT.md`를 다시 실행하지 않는다. 단, 사용자가 "초기화 다시 해줘", "프로젝트 목적을 바꿔줘", "자료 폴더를 새로 연결했어"라고 요청하면 `system/INIT.md`를 참조해 재초기화한다.
 
+## 외부 템플릿 Bootstrap 요청
+
+사용자가 빈 프로젝트에서 다음과 같이 요청한 경우:
+
+```text
+이 템플릿으로 초기화해줘: https://github.com/whyjay/agent-project-template
+```
+
+Agent는 이 repo를 임시 폴더에 clone하거나 GitHub 내용을 조회한 뒤, `AGENT_BOOTSTRAP.md`를 먼저 읽고 그 절차를 따른다.
+
+주의:
+
+- 이 원본 템플릿 repo 안에서 작업 중이면 실제 프로젝트 초기화를 실행하지 않는다.
+- 원본 템플릿은 `Initialized: NO`, `PROJECT_NAME`, `TBD` 상태를 유지한다.
+- 대상 프로젝트에 기존 `AGENTS.md`, `CLAUDE.md`, `system/`, `skills/`, `.agents/skills/`, `.claude/skills/`가 있으면 덮어쓰기 전에 사용자 확인을 받는다.
+- bootstrap 절차의 source of truth는 `AGENT_BOOTSTRAP.md`다.
+
 ## 프로젝트 폴더 구조
 
 ```text
