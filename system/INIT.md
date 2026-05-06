@@ -98,7 +98,6 @@
 - `skills/`의 공용 skill
 - `.agents/skills/`의 Codex용 skill 복사본
 - `.claude/skills/`의 Claude Code용 skill 복사본
-- `scripts/`의 선택 실행용 자동화 스크립트
 - 루트 진입 문서: `README.md`, `AGENT_BOOTSTRAP.md`, `AGENTS.md`, `CLAUDE.md`, `README_FOR_TEAM.md`
 - `system/`의 운영 문서: `system/INIT.md`, `system/INDEX.md`
 
@@ -164,21 +163,22 @@
 
 ## 최소 Skill 구성
 
-이 템플릿은 다음 세 가지 skill을 기본으로 둔다.
+이 템플릿은 다음 네 가지 skill을 기본으로 둔다.
 
 | Skill | 공용 원본 | Codex용 복사본 | Claude Code용 복사본 | 목적 |
 |---|---|---|---|---|
 | project-init | `skills/project-init/SKILL.md` | `.agents/skills/project-init/SKILL.md` | `.claude/skills/project-init/SKILL.md` | 프로젝트 초기화 |
 | update-index | `skills/update-index/SKILL.md` | `.agents/skills/update-index/SKILL.md` | `.claude/skills/update-index/SKILL.md` | 파일 추가·이동 후 `system/INDEX.md` 갱신 |
 | ingest-refs | `skills/ingest-refs/SKILL.md` | `.agents/skills/ingest-refs/SKILL.md` | `.claude/skills/ingest-refs/SKILL.md` | `00_refs/` 자료 요약 및 분석 준비 |
+| sync-skills | `skills/sync-skills/SKILL.md` | `.agents/skills/sync-skills/SKILL.md` | `.claude/skills/sync-skills/SKILL.md` | 세 skill 위치 동시 갱신 |
 
 운영 원칙:
 
 - `skills/`를 Codex, Claude, ChatGPT 등 모든 Agent가 참조할 공용 skill 원본으로 본다.
 - `.agents/skills/`는 Codex가 자동 인식하기 위한 복사본이다.
 - `.claude/skills/`는 Claude Code가 자동 인식하기 위한 복사본이다.
-- skill을 수정하면 `skills/`를 먼저 고친 뒤 `python3 scripts/sync_skills.py`로 `.agents/skills/`와 `.claude/skills/`의 내용을 함께 갱신한다.
-- 자동화가 어려운 환경에서는 `scripts/`의 Python 스크립트를 사용하거나, Agent에게 `system/INIT.md`와 `skills/`의 절차를 따르라고 지시한다.
+- skill을 추가·수정·삭제할 때는 `skills/`, `.agents/skills/`, `.claude/skills/`의 같은 skill 폴더를 동일한 변경 안에서 함께 갱신한다.
+- skill 정합성을 확인해야 하면 `skills/sync-skills/SKILL.md`를 따른다.
 
 ---
 

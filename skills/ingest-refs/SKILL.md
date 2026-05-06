@@ -11,8 +11,6 @@ This skill is part of the shared project template.
 - Codex discovery copy: `.agents/skills/ingest-refs/SKILL.md`
 - Claude Code copy: `.claude/skills/ingest-refs/SKILL.md`
 
-After editing the canonical skill, run `python3 scripts/sync_skills.py` to synchronize Agent-specific copies.
-
 Use this skill after reference files are added to `00_refs/`.
 
 ## Procedure

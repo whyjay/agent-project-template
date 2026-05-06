@@ -11,12 +11,6 @@ CLAUDE.local.md
 .env.*
 !.env.example
 
-# Python/cache output
-__pycache__/
-*.py[cod]
-.pytest_cache/
-.mypy_cache/
-.ruff_cache/
 .cache/
 
 # Reference originals are usually private or bulky.

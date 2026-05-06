@@ -14,9 +14,8 @@
 | `01_analysis/` | Agent와 함께 만든 분석·설계 노트 | `NN_topic.md` |
 | `02_outputs/` | 코드, 다이어그램, 발표자료, 보고서 등 산출물 | 자유. 필요 시 하위 폴더 사용 |
 | `skills/` | Codex/Claude/ChatGPT 공용 skill 원본 | `<skill-name>/SKILL.md` |
-| `.agents/skills/` | Codex 자동 인식용 skill 복사본 | `python3 scripts/sync_skills.py`로 생성 |
+| `.agents/skills/` | Codex 자동 인식용 skill 복사본 | `skills/`와 동일하게 유지 |
 | `.claude/skills/` | Claude Code용 skill 복사본 | `skills/`와 동일하게 유지 |
-| `scripts/` | 선택 실행용 자동화 스크립트 | `verb_noun.py` |
 
 ---
 
@@ -48,19 +47,10 @@
 |---|---|---|---|
 | 1 | ingest-refs | [skills/ingest-refs/SKILL.md](../skills/ingest-refs/SKILL.md) | 00_refs 자료 요약 및 분석 준비 |
 | 2 | project-init | [skills/project-init/SKILL.md](../skills/project-init/SKILL.md) | 프로젝트 목적과 자료 위치를 받아 초기화 |
-| 3 | update-index | [skills/update-index/SKILL.md](../skills/update-index/SKILL.md) | 파일 변경 후 INDEX.md 갱신 |
+| 3 | sync-skills | [skills/sync-skills/SKILL.md](../skills/sync-skills/SKILL.md) | 세 skill 위치 동시 갱신 |
+| 4 | update-index | [skills/update-index/SKILL.md](../skills/update-index/SKILL.md) | 파일 변경 후 INDEX.md 갱신 |
 
 > `.agents/skills/`와 `.claude/skills/`는 자동 인식용 복사본이므로 별도 카탈로그에는 중복 등록하지 않는다.
-
----
-
-## 자동화 스크립트
-
-| # | 파일 | 종류 | 한 줄 요약 |
-|---|---|---|---|
-| 1 | [scripts/init_project.py](../scripts/init_project.py) | PY / 7.7 KB | 대화형 프로젝트 초기화 스크립트 |
-| 2 | [scripts/sync_skills.py](../scripts/sync_skills.py) | PY / 3.2 KB | 공용 skill 원본을 Agent별 자동 인식 폴더로 동기화 |
-| 3 | [scripts/update_index.py](../scripts/update_index.py) | PY / 8.4 KB | 현재 폴더 구조를 기준으로 INDEX.md 재생성 |
 
 ---
 
@@ -93,7 +83,7 @@
 새 파일을 INDEX에 추가할 때 채울 필드:
 
 - **파일**: 상대 경로 + Markdown 링크 (이 파일이 `system/` 안에 있으므로 루트 파일은 `../` 접두사 사용)
-- **종류**: PDF / MD / PY / IPYNB / PPTX / DOCX / 기타 + 크기
+- **종류**: PDF / MD / IPYNB / PPTX / DOCX / 기타 + 크기
 - **출처 또는 작성일**: refs는 `출처 / 날짜`, analysis·outputs는 `작성일`
 - **한 줄 요약**: 80자 이내
 - **핵심 산출**: 이 문서나 파일에서 끄집어낼 수 있는 결론·자산
@@ -104,4 +94,4 @@
 
 | 날짜 | 변경 |
 |---|---|
-| 2026-05-06 | `scripts/update_index.py`로 INDEX 자동 갱신 |
+| 2026-05-06 | 템플릿 운영을 skill 기반 절차로 정리 |

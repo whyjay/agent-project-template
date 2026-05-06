@@ -74,4 +74,4 @@
 
 - Codex 또는 일반 Agent는 루트의 `AGENTS.md`, `system/INIT.md`, `skills/`, `.agents/skills/`를 기준으로 작업합니다.
 - Claude Code는 `CLAUDE.md`와 `.claude/skills/`를 함께 사용할 수 있습니다.
-- skill을 수정할 때만 `skills/`를 고친 뒤 `python3 scripts/sync_skills.py`로 `.agents/skills/`와 `.claude/skills/`를 함께 갱신하면 됩니다.
+- skill을 수정할 때는 Agent에게 `skills/`, `.agents/skills/`, `.claude/skills/`의 같은 skill을 함께 갱신해달라고 요청하면 됩니다.

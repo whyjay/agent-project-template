@@ -38,27 +38,13 @@ rsync -a \
   "$tmp_dir/template/" ./
 ```
 
-4. skill 복사본을 동기화한다.
-
-```sh
-python3 scripts/sync_skills.py
-```
-
-5. 사용자에게 두 가지만 묻는다.
+4. 사용자에게 두 가지만 묻는다.
    - 프로젝트 목적
    - 관련 자료 위치: OneDrive/SharePoint 연결, `00_refs/` 업로드, 아직 없음
 
-6. 가능하면 비대화형 초기화를 실행한다.
+5. `skills/project-init/SKILL.md`를 읽고 그 절차에 따라 현재 프로젝트를 초기화한다.
 
-```sh
-python3 scripts/init_project.py \
-  --project-name "<current-folder-name>" \
-  --purpose "<user-purpose>" \
-  --ref-choice C \
-  --yes
-```
-
-`--ref-choice` 값은 다음 중 하나를 사용한다.
+자료 위치 값은 다음 중 하나로 기록한다.
 
 | 값 | 의미 |
 |---|---|
@@ -66,6 +52,7 @@ python3 scripts/init_project.py \
 | `B` | `00_refs/`에 직접 업로드 |
 | `C` | 아직 자료 없음 |
 
+6. skill 파일이 추가·수정·삭제된 경우 `skills/sync-skills/SKILL.md`를 읽고 세 skill 위치가 같은지 확인한다.
 7. `system/INDEX.md`가 갱신되었는지 확인하고, 다음 추천 작업을 짧게 안내한다.
 
 ## 완료 조건
@@ -74,4 +61,4 @@ python3 scripts/init_project.py \
 - `PROJECT_NAME` placeholder가 실제 프로젝트명으로 바뀌었다.
 - `01_analysis/00_project_brief.md`가 생성되었다.
 - `system/INDEX.md`가 현재 파일 구조를 반영한다.
-- `skills/`, `.agents/skills/`, `.claude/skills/`가 동기화되어 있다.
+- `skills/`, `.agents/skills/`, `.claude/skills/`의 기본 skill이 같은 내용으로 유지되어 있다.

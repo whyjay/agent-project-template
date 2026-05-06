@@ -26,4 +26,4 @@ Agent가 위 문장을 받으면 템플릿 repo를 임시 폴더에 clone한 뒤
 - 조직 내부 GitHub repo로 올립니다.
 - Settings에서 `Template repository`를 켭니다.
 - Git LFS는 사용하지 않습니다.
-- 공용 skill 원본은 `skills/`에 두고, `python3 scripts/sync_skills.py`로 `.agents/skills/`와 `.claude/skills/`를 동기화합니다.
+- 공용 skill 원본은 `skills/`에 두고, 같은 skill을 `.agents/skills/`와 `.claude/skills/`에도 동일하게 유지합니다.
