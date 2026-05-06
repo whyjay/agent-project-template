@@ -1,0 +1,24 @@
+# OS and editor noise
+.DS_Store
+Thumbs.db
+
+# Local/private agent settings
+CLAUDE.local.md
+.claude/settings.local.json
+
+# Environment files
+.env
+.env.*
+!.env.example
+
+# Python/cache output
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.cache/
+
+# Reference originals are usually private or bulky.
+00_refs/*
+!00_refs/.gitkeep
