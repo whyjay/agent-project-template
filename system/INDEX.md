@@ -6,9 +6,9 @@
 
 | 폴더 | 용도 | 파일 명명 규칙 |
 |---|---|---|
-| `system/` | Agent 운영용 관리 문서 | `INIT.md`, `INDEX.md` |
+| `system/` | Agent 운영용 관리 문서 | `INIT.md`, `INDEX.md`, `LOG.md` |
 | `00_refs/` | 외부에서 받은 원본 자료 | 가능하면 원본 파일명 유지 |
-| `01_analysis/` | Agent와 함께 만든 분석·설계 노트 | `NN_topic.md` |
+| `01_analysis/` | Agent가 작성·유지하는 위키 (entity·concept·summary·comparison·synthesis 페이지) | 컨벤션은 `01_analysis/README.md` |
 | `02_outputs/` | 보고서, 발표자료, 코드, 다이어그램 등 산출물 | 자유. 필요 시 하위 폴더 사용 |
 | `skills/` | 공용 skill 원본 | `<skill-name>/SKILL.md` |
 | `.agents/skills/` | Codex 자동 인식용 skill 복사본 | `skills/`와 동일하게 유지 |
@@ -31,6 +31,7 @@
 |---|---|---|---|
 | 1 | [system/INIT.md](INIT.md) | MD | 초기화 산출물 계약과 skill 위임 지침 |
 | 2 | [system/INDEX.md](INDEX.md) | MD | 프로젝트 파일 카탈로그 |
+| 3 | [system/LOG.md](LOG.md) | MD | ingest·query·lint 등 위키 운영 이벤트 시간순 로그 |
 
 ## 공용 Agent Skills
 
@@ -49,11 +50,11 @@
 |---|---|---|---|---|---|
 |-|-|-|-|-|-|
 
-## 01_analysis/ — 분석·설계 노트
+## 01_analysis/ — 위키 (entity·concept·summary·comparison·synthesis)
 
 | # | 파일 | 작성일 | 한 줄 요약 | 핵심 산출 |
 |---|---|---|---|---|
-|-|-|-|-|-|
+| 1 | [01_analysis/README.md](../01_analysis/README.md) | 2026-05-09 | 위키 페이지 유형, front-matter, cross-link, 출처 컨벤션 | — |
 
 ## 02_outputs/ — 산출물
 
@@ -71,6 +72,7 @@
 
 | 날짜 | 변경 |
 |---|---|
+| 2026-05-09 | Karpathy "LLM Wiki" 패턴 반영 — `system/LOG.md`, `01_analysis/README.md` 추가, `ingest-refs` 확장 |
 | 2026-05-06 | 중복 문서를 skill 중심 구조로 압축 |
 | 2026-05-06 | Claude 앱/Claude Code 자료 연결 안내 보강 |
 | 2026-05-06 | 초기화 질문을 선택형 UI 우선 흐름으로 개선 |
